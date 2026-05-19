@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: terrarent
+  # H2 Database Configuration
+  datasource:
+    url: jdbc:h2:mem:terrarentdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update # Creates tables on startup
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true  # <--- ADD THIS LINE
+  h2:
+    console:
+      enabled: true
+      path: /h2-console # Access H2 console at http://localhost:8081/h2-console
+
+application:
+  security:
+    jwt:
+      secret-key: ${JWT_SECRET_KEY:aSuperSecretKeyForTerraRentApplicationWhichIsLongEnoughForHS256Algorithm}
+      access-token-expiration: 7200000 # 15 minutes (in milliseconds)
+      refresh-token-expiration: 604800000 # 7 days (in milliseconds)
+
+bookingcom:
+  api:
+    base-url: ${BOOKING_COM_BASE_URL:https://demandapi-sandbox.booking.com/3.1}
+    affiliate-id: ${BOOKING_COM_AFFILIATE_ID:YOUR_AFFILIATE_ID}
+    token: ${BOOKING_COM_TOKEN:YOUR_API_TOKEN}
+
+server:
+  port: 8081
+
+logging:
+  file:
+    name: backend.log
+  level:
+    com.terrarent: DEBUG
+    org.springframework.security: INFO
