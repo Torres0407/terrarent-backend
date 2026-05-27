@@ -16,6 +16,7 @@ com\terrarent\dto\landlord\LandlordDashboardResponse$LandlordDashboardResponseBu
 com\terrarent\service\EmailService.class
 com\terrarent\repository\PropertyImageRepository.class
 com\terrarent\security\UserDetailsServiceImpl.class
+com\terrarent\dto\bookingcom\CreateExternalBookingRequest.class
 com\terrarent\dto\renter\RentalApplicationRequest.class
 com\terrarent\entity\Booking$BookingBuilder.class
 com\terrarent\service\ReviewService.class
@@ -135,6 +136,7 @@ com\terrarent\service\ConversationService.class
 com\terrarent\entity\Booking$BookingStatus.class
 com\terrarent\repository\ReviewRepository.class
 com\terrarent\service\PropertyService.class
+com\terrarent\dto\bookingcom\CreateExternalBookingRequest$CreateExternalBookingRequestBuilder.class
 com\terrarent\dto\admin\AdminDashboardResponse.class
 com\terrarent\entity\FeaturedProperty.class
 com\terrarent\dto\property\PropertyRequest.class
