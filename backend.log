@@ -69,3 +69,4 @@
 2026-05-29T00:22:22.116+01:00  INFO 8632 --- [terrarent] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2026-05-29T00:22:22.116+01:00  INFO 8632 --- [terrarent] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2026-05-29T00:22:22.117+01:00  INFO 8632 --- [terrarent] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-05-29T00:39:15.229+01:00  INFO 8632 --- [terrarent] [http-nio-8081-exec-8] com.terrarent.service.EmailService       : Sending verification email to torresokubor07@gmail.com with code: 760421
