@@ -38,7 +38,7 @@ public class BookingComController {
     }
 
     @Operation(summary = "Search for accommodations via Booking.com API")
-    @PostMapping("/search")
+    @PostMapping(value = "/search", produces = "application/json")
     public ResponseEntity<String> searchHotels(@RequestBody BookingSearchRequest request) {
         String response = bookingComService.searchAccommodations(request);
         return ResponseEntity.ok(response);
