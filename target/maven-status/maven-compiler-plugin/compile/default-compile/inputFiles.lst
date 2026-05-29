@@ -78,6 +78,7 @@ C:\Users\torre\old\Documents\Projects\Hotel Management System\terrarent-backend\
 C:\Users\torre\old\Documents\Projects\Hotel Management System\terrarent-backend\src\main\java\com\terrarent\service\PropertySpecifications.java
 C:\Users\torre\old\Documents\Projects\Hotel Management System\terrarent-backend\src\main\java\com\terrarent\dto\auth\RegisterRequest.java
 C:\Users\torre\old\Documents\Projects\Hotel Management System\terrarent-backend\src\main\java\com\terrarent\entity\Role.java
+C:\Users\torre\old\Documents\Projects\Hotel Management System\terrarent-backend\src\main\java\com\terrarent\config\DatabaseConfig.java
 C:\Users\torre\old\Documents\Projects\Hotel Management System\terrarent-backend\src\main\java\com\terrarent\entity\Application.java
 C:\Users\torre\old\Documents\Projects\Hotel Management System\terrarent-backend\src\main\java\com\terrarent\config\AdminSeeder.java
 C:\Users\torre\old\Documents\Projects\Hotel Management System\terrarent-backend\src\main\java\com\terrarent\dto\bookingcom\CreateExternalBookingRequest.java

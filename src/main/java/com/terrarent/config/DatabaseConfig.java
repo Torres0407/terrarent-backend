@@ -20,13 +20,26 @@ public class DatabaseConfig {
     @Primary
     public DataSource dataSource() {
         String databaseUrl = System.getenv("DATABASE_URL");
+        if (databaseUrl == null) {
+            databaseUrl = System.getenv("SPRING_DATASOURCE_URL");
+        }
+        if (databaseUrl == null) {
+            databaseUrl = env.getProperty("spring.datasource.url");
+        }
         
-        // Render automatically provides DATABASE_URL starting with postgres:// or postgresql://
+        // If a standard postgres URI is provided (starts with postgres:// or postgresql://) instead of a JDBC URL
         if (databaseUrl != null && (databaseUrl.startsWith("postgres://") || databaseUrl.startsWith("postgresql://"))) {
             try {
                 URI dbUri = new URI(databaseUrl);
-                String username = dbUri.getUserInfo().split(":")[0];
-                String password = dbUri.getUserInfo().split(":")[1];
+                String username = null;
+                String password = null;
+                if (dbUri.getUserInfo() != null) {
+                    String[] userInfo = dbUri.getUserInfo().split(":", 2);
+                    username = userInfo[0];
+                    if (userInfo.length > 1) {
+                        password = userInfo[1];
+                    }
+                }
                 
                 // Construct standard Spring Boot JDBC URL
                 String host = dbUri.getHost();
@@ -35,16 +48,22 @@ public class DatabaseConfig {
                 
                 String dbUrl = "jdbc:postgresql://" + host + ":" + port + path;
 
-                System.out.println("🔌 Auto-configuring Render PostgreSQL connection from DATABASE_URL!");
+                System.out.println("🔌 Auto-configuring PostgreSQL connection from URI: " + dbUrl);
                 
-                return DataSourceBuilder.create()
+                DataSourceBuilder<?> builder = DataSourceBuilder.create()
                         .url(dbUrl)
-                        .username(username)
-                        .password(password)
-                        .driverClassName("org.postgresql.Driver")
-                        .build();
+                        .driverClassName("org.postgresql.Driver");
+                
+                if (username != null) {
+                    builder.username(username);
+                }
+                if (password != null) {
+                    builder.password(password);
+                }
+                
+                return builder.build();
             } catch (Exception e) {
-                System.err.println("❌ Failed to parse DATABASE_URL, falling back to application.yml settings: " + e.getMessage());
+                System.err.println("❌ Failed to parse connection URI, falling back to raw configuration settings: " + e.getMessage());
             }
         }
         

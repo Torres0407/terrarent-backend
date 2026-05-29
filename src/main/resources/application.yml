@@ -7,6 +7,11 @@ spring:
     username: ${SPRING_DATASOURCE_USERNAME:postgres}
     password: ${SPRING_DATASOURCE_PASSWORD:2007}
     driver-class-name: ${SPRING_DATASOURCE_DRIVER:org.postgresql.Driver}
+#  datasource:
+#    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/terrarent_db}
+#    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+#    password: ${SPRING_DATASOURCE_PASSWORD:2007}
+#    driver-class-name: ${SPRING_DATASOURCE_DRIVER:org.postgresql.Driver}
   h2:
     console:
       enabled: true

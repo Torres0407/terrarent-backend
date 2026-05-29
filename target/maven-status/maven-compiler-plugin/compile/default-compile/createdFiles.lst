@@ -79,6 +79,7 @@ com\terrarent\entity\Application.class
 com\terrarent\entity\PropertyImage.class
 com\terrarent\dto\util\PageResponse$PageResponseBuilder.class
 com\terrarent\entity\User.class
+com\terrarent\config\DatabaseConfig.class
 com\terrarent\service\PropertySpecifications.class
 com\terrarent\entity\Amenity.class
 com\terrarent\entity\Verification.class
