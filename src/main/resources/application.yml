@@ -1,7 +1,7 @@
 spring:
   application:
     name: terrarent
-  # Development Database Configuration (H2 in-memory by default, PostgreSQL overrides allowed)
+  # Indented correctly under 'spring:'
   datasource:
     url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/terrarent_db}
     username: ${SPRING_DATASOURCE_USERNAME:postgres}
@@ -13,20 +13,19 @@ spring:
       path: /h2-console
   jpa:
     hibernate:
-      ddl-auto: update # Creates or updates tables on startup
+      ddl-auto: update 
     show-sql: true
     properties:
       hibernate:
         format_sql: true
-        # dialect: ${SPRING_JPA_DIALECT} # Let Hibernate auto-detect the dialect based on the connection
     defer-datasource-initialization: true
 
 application:
   security:
     jwt:
       secret-key: ${JWT_SECRET_KEY:aSuperSecretKeyForTerraRentApplicationWhichIsLongEnoughForHS256Algorithm}
-      access-token-expiration: 7200000 # 15 minutes (in milliseconds)
-      refresh-token-expiration: 604800000 # 7 days (in milliseconds)
+      access-token-expiration: 7200000 
+      refresh-token-expiration: 604800000 
 
 bookingcom:
   api:
